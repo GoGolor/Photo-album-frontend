@@ -1,0 +1,47 @@
+<md-dialog aria-label="Add new photo" style="width: 400px" ng-cloak>
+  <form name="addPhotoForm" ng-submit="dialog.submit()">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Add new photo</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="dialog.cancel()">
+          <md-icon>clear</md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <md-input-container flex>
+          <label>Url</label>
+          <input required name="url" ng-model="dialog.newPhoto.url">
+          <div ng-messages="addPhotoForm.url.$error">
+            <div ng-message="required">This is required.</div>
+          </div>
+        </md-input-container>
+        <md-input-container flex>
+          <label>Title</label>
+          <input required name="title" ng-model="dialog.newPhoto.title">
+          <div ng-messages="addPhotoForm.title.$error">
+            <div ng-message="required">This is required.</div>
+          </div>
+        </md-input-container>
+        <md-input-container flex>
+          <label>Description</label>
+          <textarea required name="description" ng-model="dialog.newPhoto.description" columns="3"></textarea>
+          <div ng-messages="addPhotoForm.description.$error">
+            <div ng-message="required">This is required.</div>
+          </div>
+        </md-input-container>
+      </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button class="md-primary" type="submit">
+        <md-icon>done</md-icon>Ok
+      </md-button>
+      <md-button class="md-warn" ng-click="dialog.cancel()" style="margin-right:20px;">
+        <md-icon>cancel</md-icon>Close
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

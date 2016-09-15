@@ -1,0 +1,12 @@
+<div ng-if="profile.currentUser.id">
+	<md-input-container>
+		<label>Name</label>
+		<input ng-model="profile.currentUser.name">
+	</md-input-container>
+	<md-input-container>
+		<label>Login</label>
+		<input ng-model="profile.currentUser.login">
+	</md-input-container>
+	<md-button class="md-raised md-primary" ng-click="profile.saveUser()">Save changes</md-button>
+</div>
+<pa-progress-circular ng-if="!profile.currentUser.id"></pa-progress-circular>

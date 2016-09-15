@@ -1,0 +1,25 @@
+<md-toolbar class="md-toolbar-tools">
+      <md-button ng-href="#all-photos" ng-style="navBar.navBtnStyle('/all-photos')">All photos</md-button>
+      <md-button ng-href="#my-photos" ng-style="navBar.navBtnStyle('/my-photos')" ng-if="navBar.currentUser.id">My photos</md-button>
+      <span flex></span>
+      <div ng-if="navBar.currentUser.initialized">
+            <md-button ng-if="!navBar.currentUser.id" ng-click="navBar.loginDialog()">Login</md-button>
+            <md-button ng-if="!navBar.currentUser.id" ng-click="navBar.registerDialog()">Register</md-button>
+            <md-menu ng-if="navBar.currentUser.id" md-position-mode="target-right target">
+                  <md-button aria-label="Open menu" ng-click="$mdOpenMenu($event)">
+                        {{navBar.currentUser.name}}
+                  </md-button>
+                  <md-menu-content width="4">
+                        <md-menu-item>
+                              <md-button ng-click="navBar.profile()">Profile</md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                              <md-button ng-click="navBar.logout()">Logout</md-button>
+                        </md-menu-item>
+                  </md-menu-content>
+            </md-menu>
+      </div>
+      <div ng-if="!navBar.currentUser.initialized">
+            <md-progress-circular md-diameter="20px" class=""  md-mode="indeterminate"></md-progress-circular>
+      </div>
+</md-toolbar>

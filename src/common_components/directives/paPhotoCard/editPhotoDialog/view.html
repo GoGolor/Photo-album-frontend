@@ -1,0 +1,34 @@
+<md-dialog aria-label="Edit photo" style="width: 400px">
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Edit photo</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="dialog.cancel()">
+          <md-icon>clear</md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <md-input-container flex>
+          <label>Title</label>
+          <input ng-model="dialog.newTitle">
+        </md-input-container>
+        <md-input-container flex>
+          <label>Description</label>
+          <textarea ng-model="dialog.newDescription" columns="3"></textarea>
+        </md-input-container>
+      </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button class="md-primary" ng-click="dialog.answer([dialog.newTitle,dialog.newDescription])">
+        <md-icon>done</md-icon>Ok
+      </md-button>
+      <md-button class="md-warn" ng-click="dialog.cancel()" style="margin-right:20px;">
+        <md-icon>cancel</md-icon>Cancel
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

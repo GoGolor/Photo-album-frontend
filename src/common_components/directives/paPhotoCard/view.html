@@ -1,0 +1,40 @@
+<md-card flex="90" flex-sm="100" ng-cloak>
+      <img ng-src="{{photoCard.photo.url}}" style="width: 200px;" alt="Photo">
+      <md-card-content>
+            <div>
+                  <span class="md-title">{{photoCard.photo.title}}</span>
+                  <md-button ng-if="photoCard.checkMode('edit')" class="md-raised" ng-click="photoCard.editPhoto()"><md-icon>mode_edit</md-icon>Edit</md-button>
+                  <md-button ng-if="photoCard.checkMode('edit')" class="md-raised" ng-click="photoCard.deletePhoto()"><md-icon>delete</md-icon>Delete</md-button>
+            </div>
+            <p>{{photoCard.photo.description}}</p>
+            <div flex>
+                  <span>Add</span>
+                  <span ng-if="photoCard.checkMode('view')">by:{{photoCard.photo.author_name}}</span>
+                  <time>{{photoCard.photo.createdTime}}</time>
+                  <span ng-if="photoCard.checkMode('edit') && photoCard.photo.updatedTime">Updated: {{photoCard.photo.updatedTime}}</span>
+            </div>
+            <p>
+                  Rating:
+                  <pa-rating-stars rating="photoCard.photo.commonRating" mode="view" photo-id="photoCard.photo.id"></pa-rating-stars>
+                  <span ng-if="photoCard.currentUser.id">
+                        My rating:
+                        <pa-rating-stars rating="photoCard.photo.userRating" mode="edit" photo-id="photoCard.photo.id"></pa-rating-stars>
+                  </span>
+            </p>
+            <div ng-show="photoCard.currentUser.id" layout="row" layout-align="space-between center">
+                  <md-input-container flex="50">
+                        <label>
+                              <md-icon>chat</md-icon>New comment by {{photoCard.currentUser.name}}</label>
+                        <textarea ng-model="photoCard.newComment"></textarea>
+                  </md-input-container>
+                  <md-button ng-if="photoCard.newComment" ng-click="photoCard.addComment()" class="md-raised">Save comment</md-button>
+            </div>
+            <md-button class="md-raised" ng-click="photoCard.toggleComments()" ng-if="photoCard.comments.length">
+                  Show comments ({{photoCard.comments.length}})
+            </md-button>
+            <md-list ng-show="photoCard.commentsShow">
+                  <pa-comment ng-repeat="comment in photoCard.comments| orderBy:'date':reverse='false'" comment="comment" edit-mode="comment.author_id == photoCard.currentUser.id"
+                  delete-mode="(comment.author_id == photoCard.currentUser.id)||(photoCard.photo.author_id == photoCard.currentUser.id)"></pa-comment>
+            </md-list>
+      </md-card-content>
+</md-card>

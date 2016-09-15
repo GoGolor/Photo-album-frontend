@@ -1,0 +1,40 @@
+<md-dialog aria-label="Login" style="width: 400px"  ng-cloak>
+  <form name="loginForm" ng-submit="loginCtrl.submit()">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Login</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="loginCtrl.cancel()">
+          <md-icon>clear</md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <md-input-container flex>
+          <label>Login</label>
+          <input required name="userLogin" ng-model="loginCtrl.user.login" autocomplete="off">
+          <div ng-messages="loginForm.userLogin.$error">
+            <div ng-message="required">This is required.</div>
+          </div>
+        </md-input-container>
+        <md-input-container flex>
+          <label>Password</label>
+          <input required name="userPassword" ng-model="loginCtrl.user.password" autocomplete="off">
+          <div ng-messages="loginForm.userPassword.$error">
+            <div ng-message="required">This is required.</div>
+          </div>
+        </md-input-container>
+      </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button type="submit">
+        Ok
+      </md-button>
+      <md-button ng-click="loginCtrl.cancel()" style="margin-right:20px;">
+        Close
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

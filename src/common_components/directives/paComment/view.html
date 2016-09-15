@@ -1,0 +1,19 @@
+<md-list-item class="md-3-line" ng-if="!commentCtrl.deleted">
+	<div class="md-list-item-text">
+		<h3><md-icon>face</md-icon> {{ commentCtrl.comment.author_name }}</h3>
+		<h4><md-icon>event</md-icon> Add: {{ commentCtrl.comment.commented}} <span ng-if="commentCtrl.comment.edited">Edited: {{ commentCtrl.comment.edited}}</span></h4>
+		<p ng-show="commentCtrl.mode == 'view'">
+			<md-icon>chat</md-icon> {{ commentCtrl.comment.comment }}</p>
+		<md-input-container ng-show="commentCtrl.mode == 'edit'">
+			<label>Comment</label>
+			<input ng-model="commentCtrl.comment.comment">
+		</md-input-container>
+		<p ng-show="commentCtrl.mode == 'view'">
+			<md-button ng-click="commentCtrl.toggleMode()" ng-if="commentCtrl.editMode">Edit comment</md-button>
+			<md-button class="md-warn" ng-click="commentCtrl.deleteComment(commentCtrl.comment)" ng-if="commentCtrl.deleteMode">Delete comment</md-button>
+		</p>
+		<p ng-show="commentCtrl.mode == 'edit'">
+			<md-button ng-click="commentCtrl.changeComment(commentCtrl.comment)">Save changes</md-button>
+		</p>
+	</div>
+</md-list-item>

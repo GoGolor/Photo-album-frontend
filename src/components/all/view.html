@@ -1,0 +1,5 @@
+<div ng-if="allPhotos.photos.loaded">
+	<pa-sorting-bar active-btn-index="allPhotos.activeBtnIndex" buttons="allPhotos.sortingButtons"></pa-sorting-bar>
+	<pa-photo-card ng-repeat="photo in allPhotos.photos | orderBy:allPhotos.sortingButtons[allPhotos.activeBtnIndex].field:allPhotos.sortingButtons[allPhotos.activeBtnIndex].directOrder" photo="photo" mode="view"></pa-photo-card>
+</div>
+<pa-progress-circular ng-if="!allPhotos.photos.loaded"></pa-progress-circular>

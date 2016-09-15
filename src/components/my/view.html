@@ -1,0 +1,10 @@
+<div ng-if="myPhotos.photos.loaded">
+	<div>
+		<md-button class="md-raised" ng-click="myPhotos.addPhotoDialog()">
+			<md-icon>add</md-icon>Add new photo
+		</md-button>
+	</div>
+	<pa-sorting-bar active-btn-index="myPhotos.activeBtnIndex" buttons="myPhotos.sortingButtons"></pa-sorting-bar>
+	<pa-photo-card ng-repeat="photo in myPhotos.photos | orderBy:myPhotos.sortingButtons[myPhotos.activeBtnIndex].field:myPhotos.sortingButtons[myPhotos.activeBtnIndex].directOrder" photo="photo" mode="edit" callback="myPhotos.reloadPage"></pa-photo-card>
+</div>
+<pa-progress-circular ng-if="!myPhotos.photos.loaded"></pa-progress-circular>

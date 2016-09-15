@@ -1,0 +1,33 @@
+<md-dialog aria-label="Delete photo" style="width: 400px" ng-cloak>
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Do you want delete this photo?</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="dialog.cancel()">
+          <md-icon>clear</md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <md-card>
+          <img ng-src="{{dialog.photo.url}}" style="width: 200px;" alt="Photo">
+          <md-card-content>
+            <span class="md-title">{{dialog.photo.title}}</span>
+            <p>{{dialog.photo.description}}</p>
+          </md-card-content>
+        </md-card>
+      </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button class="md-primary" ng-click="dialog.answer()">
+        <md-icon>delete</md-icon>Delete
+      </md-button>
+      <md-button class="md-warn" ng-click="dialog.cancel()" style="margin-right:20px;">
+        <md-icon>cancel</md-icon>Close
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

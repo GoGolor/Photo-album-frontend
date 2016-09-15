@@ -1,0 +1,4 @@
+<span ng-repeat="x in [0,1,2,3,4]" ng-mouseover="ratingStars.mouseover($index)" 
+	ng-mouseleave="ratingStars.mouseleave()" ng-cloak>
+	<a href ng-click="ratingStars.click()"><md-icon ng-style="ratingStars.style($index)">star</md-icon></a>
+</span>
