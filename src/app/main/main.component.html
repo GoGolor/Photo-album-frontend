@@ -1,0 +1,21 @@
+<mat-sidenav-container style="background-color: transparent;">
+  <mat-sidenav mode="over" #drawer [fixedInViewport]="true">
+    <mat-nav-list>
+      <a mat-list-item routerLink="{{link.url}}" *ngFor="let link of journals" (click)="drawer.close()">{{ link.name }}</a>
+    </mat-nav-list>
+    <mat-nav-list>
+      <a mat-list-item routerLink="{{link.url}}" *ngFor="let link of dictionaryurls" (click)="drawer.close()">{{ link.name }}</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="toolbar">
+      <button mat-icon-button (click)="drawer.toggle()">
+        <mat-icon class="example-icon">menu</mat-icon>
+      </button>
+      <span>My Application</span>
+    </mat-toolbar>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
