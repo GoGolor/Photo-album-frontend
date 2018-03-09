@@ -23,10 +23,12 @@ export class AuthService {
       method: 'POST',
       body: { login, password }
     })
-      .subscribe(({ user, token }) => {
-        this.saveToken(token);
-        this.setCurrentUser(user);
-      });
+      .pipe(
+        stream => stream.do(({ user, token }) => {
+          this.saveToken(token);
+          this.setCurrentUser(user);
+        })
+      );
   }
 
   tryAuthenticate() {

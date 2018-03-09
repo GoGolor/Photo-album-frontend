@@ -10,15 +10,16 @@ export class AppComponent {
   title = 'app';
   constructor(translate: TranslateService) {
     // this language will be used as a fallback when a translation isn't found in the current language
-    translate.setDefaultLang('en');
+    translate.setDefaultLang('ru');
 
      // the lang to use, if the lang isn't available, it will use the current loader to get them
-    translate.use('en');
+    translate.use('ru');
 
-    translate.setTranslation('en', {
+    translate.setTranslation('ru', {
       LOGIN: 'Логин',
       PASSWORD: 'Пароль',
-      ENTER: 'Вход'
+      ENTER: 'Вход',
+      REQUIRED_FIELD: 'Обязательное поле'
     });
   }
 }
