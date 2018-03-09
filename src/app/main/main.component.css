@@ -7,3 +7,8 @@
 .content {
   padding-top: 64px;
 }
+
+.main {
+  background-color: transparent;
+  min-height: 100vh;
+}

@@ -1,0 +1,40 @@
+<h1 mat-dialog-title>{{ "CLIENT" | translate }}</h1>
+<div mat-dialog-content>
+  <form fxLayout="column" [formGroup]="form">
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="{{ 'CLIENT_SHORT_NAME' | translate }}"
+        required
+        type="text"
+        formControlName="shortName"
+      >
+      <mat-error *ngIf="form.get('shortName').hasError">{{ "REQUIRED_FIELD" | translate }}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea
+        matInput
+        placeholder="{{ 'CLIENT_NAME' | translate }}"
+        required
+        type="text"
+        formControlName="name"
+        matTextareaAutosize
+      ></textarea>
+      <mat-error *ngIf="form.get('name').hasError">{{ "REQUIRED_FIELD" | translate }}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="{{ 'INN' | translate }}"
+        required
+        type="text"
+        formControlName="INN"
+      >
+      <mat-error *ngIf="form.get('INN').hasError">{{ "REQUIRED_FIELD" | translate }}</mat-error>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions fxLayout fxLayoutAlign="end">
+  <button mat-button (click)="save()" [disabled]="form.invalid">{{ "SAVE" | translate }}</button>
+  <button mat-button (click)="onNoClick()">{{ "CANCEL" | translate }}</button>
+</div>

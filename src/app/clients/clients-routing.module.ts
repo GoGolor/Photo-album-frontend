@@ -11,5 +11,3 @@ export const routes: Routes = [
     component: ClientsComponent
   }
 ];
-
-export const routedComponents = [ClientsComponent];

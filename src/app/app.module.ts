@@ -7,9 +7,10 @@ import { TranslateModule } from '@ngx-translate/core';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AuthModule } from './auth/auth.module';
-import { ServicesModule } from './services/services.module';
-import { MainModule } from './main/main.module';
+import { ClientsModule } from './clients/clients.module';
 import { JournalModule } from './journal/journal.module';
+import { MainModule } from './main/main.module';
+import { ServicesModule } from './services/services.module';
 
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -26,10 +27,13 @@ import { AuthGuard } from './auth-guard.service';
     BrowserAnimationsModule,
     CookieModule.forRoot(),
     TranslateModule.forRoot(),
+
     AuthModule,
-    ServicesModule,
-    MainModule,
+    ClientsModule,
     JournalModule,
+    MainModule,
+    ServicesModule,
+
     AppRoutingModule
   ],
   providers: [AuthGuard],

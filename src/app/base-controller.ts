@@ -11,7 +11,7 @@ export abstract class BaseController<Item extends { id: number }> implements OnI
   @ViewChild(MatPaginator) paginator: MatPaginator;
   pageSource = new BehaviorSubject<number>(1);
   page$ = this.pageSource.asObservable();
-  constructor(private dataService: BaseDataService<Item>) { }
+  constructor(protected dataService: BaseDataService<Item>) { }
 
   ngOnInit() {
     this.page$

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { SharedModule } from 'shared-module';
+import { SharedModule } from '../shared/shared.module';
 
 import { AuthComponent } from './auth/auth.component';
 import { AuthRoutingModule } from './auth-routing.module';

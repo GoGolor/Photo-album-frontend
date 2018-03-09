@@ -19,7 +19,14 @@ export class AppComponent {
       LOGIN: 'Логин',
       PASSWORD: 'Пароль',
       ENTER: 'Вход',
-      REQUIRED_FIELD: 'Обязательное поле'
+      REQUIRED_FIELD: 'Обязательное поле',
+      SHORT_NAME: 'Сокращеное наименование',
+      INN: 'ИНН',
+      CLIENT: 'Заказчик',
+      SAVE: 'Сохранить',
+      CANCEL: 'Отмена',
+      CLIENT_SHORT_NAME: 'Наименование заказчика сокращеное',
+      CLIENT_NAME: 'Наименование заказчика'
     });
   }
 }

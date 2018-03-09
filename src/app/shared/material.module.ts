@@ -1,9 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { TranslateModule } from '@ngx-translate/core';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -18,9 +13,6 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 const modules = [
-  CommonModule,
-  FlexLayoutModule,
-  FormsModule,
   MatButtonModule,
   MatCardModule,
   MatDialogModule,
@@ -31,13 +23,11 @@ const modules = [
   MatPaginatorModule,
   MatSidenavModule,
   MatTableModule,
-  MatToolbarModule,
-  ReactiveFormsModule,
-  TranslateModule,
+  MatToolbarModule
 ];
 
 @NgModule({
   imports: modules,
   exports: modules
 })
-export class SharedModule { }
+export class MaterialModule {}

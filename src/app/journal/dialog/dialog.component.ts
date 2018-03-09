@@ -9,9 +9,8 @@ import { JournalItem } from 'models/journal';
 export class AppJournalDialogComponent {
   constructor(
     public dialogRef: MatDialogRef<AppJournalDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: JournalItem) {
-      console.log(this.data);
-    }
+    @Inject(MAT_DIALOG_DATA) public data: JournalItem
+  ) { }
 
   onNoClick(): void {
     this.dialogRef.close();

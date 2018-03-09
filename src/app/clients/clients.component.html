@@ -1,1 +1,20 @@
-<p>Clients!</p>
+<mat-card class="table-card">
+  <mat-table #table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="shortName">
+      <mat-header-cell *matHeaderCellDef>{{ "SHORT_NAME" | translate }}</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{ element.shortName }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="INN">
+      <mat-header-cell *matHeaderCellDef>{{ "INN" | translate }}</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{ element.INN }}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="openDialog(row)"></mat-row>
+  </mat-table>
+
+  <mat-paginator #paginator [length]="count" [pageSize]="10" (page)="handlePageChange($event)">
+  </mat-paginator>
+</mat-card>

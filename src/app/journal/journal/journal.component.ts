@@ -10,8 +10,7 @@ import { AppJournalDialogComponent } from '../dialog/dialog.component';
 @Component({
   selector: 'app-journal',
   templateUrl: './journal.component.html',
-  providers: [JournalService, JournalDataService],
-  styleUrls: ['./journal.style.css']
+  providers: [JournalService, JournalDataService]
 })
 export class JournalComponent extends BaseController<JournalItem> {
   displayedColumns = ['number', 'date', 'numberOfDocument', 'result', 'clientName', 'stateRegisterNumber', 'name'];
