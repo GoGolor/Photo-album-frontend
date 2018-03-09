@@ -1,29 +1,32 @@
-<mat-card class="login-form">
-  <form fxLayout="column" #loginForm="ngForm" (ngSubmit)="onSubmit()">
-    <mat-form-field>
-      <input
-        matInput
-        placeholder="{{ 'LOGIN' | translate }}"
-        required
-        type="text"
-        name="login"
-        [(ngModel)]="login"
-      >
-    </mat-form-field>
+<div class="full-screen center-content">
+  <mat-card class="login-form">
+    <img src="assets/metron_logo.png" class="logo">
+    <form fxLayout="column" [formGroup]="authForm">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="{{ 'LOGIN' | translate }}"
+          required
+          type="text"
+          formControlName="login"
+        >
+        <mat-error *ngIf="authForm.get('login').hasError">{{ "REQUIRED_FIELD" | translate }}</mat-error>
+      </mat-form-field>
+    
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="{{ 'PASSWORD' | translate }}"
+          required
+          type="password"
+          formControlName="password"
+        >
+        <mat-error *ngIf="authForm.get('login').hasError">{{ "REQUIRED_FIELD" | translate }}</mat-error>
+      </mat-form-field>
   
-    <mat-form-field>
-      <input
-        matInput
-        placeholder="{{ 'PASSWORD' | translate }}"
-        required
-        type="password"
-        name="password"
-        [(ngModel)]="password"
-      >
-    </mat-form-field>
-
-    <button mat-raised-button type="submit" [disabled]="!loginForm.form.valid" color="primary">
-      {{ "ENTER" | translate }}
-    </button>
-  </form>
-</mat-card>
+      <button mat-raised-button type="submit" color="primary" class="login-button" (click)="onSubmit()" [disabled]="authForm.invalid === true">
+        {{ "ENTER" | translate }}
+      </button>
+    </form>
+  </mat-card>
+</div>

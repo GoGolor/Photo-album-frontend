@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -7,13 +9,25 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./auth.component.css']
 })
 export class AuthComponent {
-  public login = '';
-  public password = '';
+  authForm: FormGroup;
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private fb: FormBuilder,
+    private router: Router
+  ) {
+    this.createForm();
+  }
+
+  createForm() {
+    this.authForm = this.fb.group({
+      login: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+  }
 
   onSubmit() {
-    console.log(`Login: ${this.login}, password: ${this.password}`);
-    this.authService.auth({ login: this.login, password: this.password });
+    this.authService.auth(this.authForm.value)
+      .subscribe(() => this.router.navigate(['']));
   }
 }
