@@ -9,3 +9,11 @@ body {
 .table-card {
   margin: 8px;
 }
+
+.error-toast {
+  background-color: red;
+}
+
+.success-toast {
+  background-color: green;
+}

@@ -5,6 +5,8 @@ import { ClientsDataService } from './clients.service';
 import { BaseController } from '../base-controller';
 import { Client } from './clients.models';
 import { ClientsDialogComponent } from './clients-dialog.component';
+import { ToastService } from '../services/toast.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-clients',
@@ -15,7 +17,9 @@ export class ClientsComponent extends BaseController<Client> {
   displayedColumns = ['shortName', 'INN'];
   constructor(
     clientsDataService: ClientsDataService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private toastService: ToastService,
+    private translateService: TranslateService
   ) {
     super(clientsDataService);
   }
@@ -38,8 +42,8 @@ export class ClientsComponent extends BaseController<Client> {
           this.dataService.update(client);
       })
       .subscribe(
-        () => { },
-        error => console.error(error)
+        () => this.toastService.showSuccess(this.translateService.instant('ENTRY_HAS_BEEN_SAVED')),
+        error => this.toastService.showError(error.message)
       );
   }
 }
