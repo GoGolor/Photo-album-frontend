@@ -27,7 +27,10 @@ export class AppComponent {
       CANCEL: 'Отмена',
       CLIENT_SHORT_NAME: 'Наименование заказчика сокращеное',
       CLIENT_NAME: 'Наименование заказчика',
-      ENTRY_HAS_BEEN_SAVED: 'Запись сохранена'
+      ENTRY_HAS_BEEN_SAVED: 'Запись сохранена',
+      ADD_CLIENT: 'Добавить заказчика',
+      SEARCH: 'Поиск',
+      ITEM_HAS_BEEN_SAVED: 'Запись была сохранена'
     });
   }
 }

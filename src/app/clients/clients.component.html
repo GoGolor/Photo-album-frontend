@@ -1,3 +1,7 @@
+<div fxLayout="row" fxLayoutAlign="end" style="margin: 8px;">
+  <button mat-raised-button color="accent" (click)="create()">{{ "ADD_CLIENT" | translate }}</button>
+</div>
+<app-search (search)="onSearch($event)"></app-search>
 <mat-card class="table-card">
   <mat-table #table [dataSource]="dataSource">
 

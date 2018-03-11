@@ -15,35 +15,24 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class ClientsComponent extends BaseController<Client> {
   displayedColumns = ['shortName', 'INN'];
+  successMessage = this.translateService.instant('ENTRY_HAS_BEEN_SAVED');
   constructor(
     clientsDataService: ClientsDataService,
+    toastService: ToastService,
     private dialog: MatDialog,
-    private toastService: ToastService,
     private translateService: TranslateService
   ) {
-    super(clientsDataService);
+    super(clientsDataService, toastService);
   }
 
-  create() {
-    const client = { id: null, name: '', shortName: '', INN: '' };
-    this.openDialog(client);
+  get newItem() {
+    return { id: null, name: '', shortName: '', INN: '' };
   }
 
-  openDialog(item: Client) {
-    this.dialog.open(ClientsDialogComponent, {
+  openDialog(item) {
+    return this.dialog.open(ClientsDialogComponent, {
       width: '400px',
       data: { item }
-    })
-      .afterClosed()
-      .filter((client: Client) => client != null)
-      .switchMap((client: Client) => {
-        return client.id == null ?
-          this.dataService.create(client) :
-          this.dataService.update(client);
-      })
-      .subscribe(
-        () => this.toastService.showSuccess(this.translateService.instant('ENTRY_HAS_BEEN_SAVED')),
-        error => this.toastService.showError(error.message)
-      );
+    });
   }
 }

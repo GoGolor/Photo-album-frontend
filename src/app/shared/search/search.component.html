@@ -1,0 +1,8 @@
+<mat-card class="search">
+  <form [formGroup]="form" fxLayout="column">
+    <mat-form-field>
+      <input matInput placeholder="{{ 'SEARCH' | translate }}" type="text" formControlName="searchString">
+      <!-- <mat-icon matPrefix>search</mat-icon> -->
+    </mat-form-field>
+  </form>
+</mat-card>

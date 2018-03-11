@@ -5,6 +5,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { MaterialModule } from './material.module';
+import { SharedComponentsModule } from './shared-components.module';
 
 const modules = [
   CommonModule,
@@ -13,10 +14,11 @@ const modules = [
   MaterialModule,
   ReactiveFormsModule,
   TranslateModule,
+  SharedComponentsModule,
 ];
 
 @NgModule({
   imports: modules,
-  exports: modules
+  exports: modules,
 })
 export class SharedModule { }
